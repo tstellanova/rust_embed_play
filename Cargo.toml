@@ -3,6 +3,13 @@ name = "rust_example"
 version = "0.1.0"
 authors = ["tstellanova <tstellanova@users.noreply.github.com>"]
 edition = "2018"
+build = "build/build.rs"
+
+
+
+[build-dependencies]
+bindgen = "0.48.1"
+
 
 
 [lib]
@@ -10,4 +17,17 @@ name = "rust_example"
 crate-type = ["staticlib"]
 
 
+# the profile used for `cargo build --release`
+[profile.release]
+panic = "abort" # disable stack unwinding on panic
+lto = true # attempt to strip dead code
+
+# the profile used for `cargo build`
+[profile.dev]
+panic = "abort" # disable stack unwinding on panic
+
+
 [dependencies]
+libc = "0.2"
+cty = "0.2.0"
+
