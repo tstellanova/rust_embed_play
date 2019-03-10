@@ -1,0 +1,13 @@
+[package]
+name = "rust_example"
+version = "0.1.0"
+authors = ["tstellanova <tstellanova@users.noreply.github.com>"]
+edition = "2018"
+
+
+[lib]
+name = "rust_example"
+crate-type = ["staticlib"]
+
+
+[dependencies]
