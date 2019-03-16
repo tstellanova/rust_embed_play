@@ -1,19 +1,21 @@
 [package]
-name = "rust_example"
+name = "rust_embed_play"
 version = "0.1.0"
 authors = ["tstellanova <tstellanova@users.noreply.github.com>"]
+repo = "https://github.com/tstellanova/rust_embed_play"
+license = "BSD-3-Clause"
 edition = "2018"
-build = "build/build.rs"
 
+# dynamically rebuilding the uorb dependencies at build time
+# not yet working, not yet used
+#build = "build/build.rs"
 
-
-[build-dependencies]
-bindgen = "0.48.1"
-
+#[build-dependencies]
+#bindgen = "0.48.1"
 
 
 [lib]
-name = "rust_example"
+name = "rust_embed_play"
 crate-type = ["staticlib"]
 
 
@@ -26,8 +28,10 @@ lto = true # attempt to strip dead code
 [profile.dev]
 panic = "abort" # disable stack unwinding on panic
 
-
 [dependencies]
-libc = "0.2"
 cty = "0.2.0"
+mbox = { version = "0.5", default-features = false }
+libc = { version = "0.2", default-features = false }
+
+
 
